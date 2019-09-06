@@ -5,6 +5,9 @@
 The RESTful web service that can offer reporting advertising data, part of which
 is extracted from a csv file and the rest being calculated as additional metrics.
 
+**Excluded scenarios**
+1. Year is not considered in the solution (so you don't have to take the year 2018 into account.)
+
 **Pre-requisite:**
 1. JDK 1.8
     To check, run java -version:
