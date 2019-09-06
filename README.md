@@ -15,10 +15,10 @@ is extracted from a csv file and the rest being calculated as additional metrics
 3. Gradle setup
 
 **Installation and Setup:**
-1. Download the attached zip file (name: reporting-service.zip)
-2. Extract the zip file
-3. Open intelliJ - File -> New -> Project From Existing Sources
-    -> browse and select the extracted folder (step 2)
+1. Go to the github url - https://github.com/vijujoseph/reporting-services
+2. select 'Clone or download'
+3. Open intelliJ - File -> New -> Project From Version Control -> git
+4. Enter URL - which was cloned in step 2 and click clone button
 4. Import/refresh all gradle dependencies
 5. Click build
 6. Run bootRun
