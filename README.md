@@ -16,10 +16,11 @@ is extracted from a csv file and the rest being calculated as additional metrics
 
 **Installation and Setup:**
 1. Go to the github url - https://github.com/vijujoseph/reporting-services
-2. select 'Clone or download'
+2. select 'Clone or download', copy the URL
 3. Open intelliJ - File -> New -> Project From Version Control -> git
 4. Enter URL - which was cloned in step 2 and click clone button
-4. Import/refresh all gradle dependencies
+4. IntelliJ will show and option to Import gradle projects, choose the option and 
+    refresh all gradle dependencies
 5. Click build
 6. Run bootRun
 
