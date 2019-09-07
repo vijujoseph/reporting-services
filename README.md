@@ -15,7 +15,14 @@ is extracted from a csv file and the rest being calculated as additional metrics
         $ java -version
         java version "1.8.0_121"
 2. Any IDE, preferably Intellij
-3. Gradle setup
+3. Initial data load (CSV files data load) instructions
+       
+   As part of package, application is already loaded the csv files -  January [2018_01_report.csv](2018_01_report.csv) and February [2018_02_report.csv](2018_02_report.csv)
+   To add new csv files, copy the files to folder (src/main/resources) and add the newly added file name
+   to the file -> ParseExcelUtils.java -> filesNames[]
+       
+          e.g) String fileNames[] = {"2018_01_report.csv","2018_02_report.csv"};
+      p.s: Ideal scenarios the above entry needs to be added in application.property files
 
 **Installation and Setup:**
 1. Go to the github url - https://github.com/vijujoseph/reporting-services

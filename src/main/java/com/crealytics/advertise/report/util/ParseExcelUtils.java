@@ -15,7 +15,7 @@ import java.util.List;
 public final class ParseExcelUtils {
 
     private static final Logger log = LoggerFactory.getLogger(ParseExcelUtils.class);
-    private static final int MONTH_BEGIN_INDEX = 6;
+    private static final int MONTH_BEGIN_INDEX = 5;
     private static final int MONTH_END_INDEX = 7;
     public static List<ReportData> parseFile() throws IOException, InvalidFormatException {
 
@@ -24,12 +24,13 @@ public final class ParseExcelUtils {
         List<ReportData> list = new ArrayList<>();
 
         //fileNames - The names of the publisher advertising reporting data
-        String fileNames[] = {"2018_01_report.csv","2018_02_report.csv"};
+        String fileNames[] = {"2018_01_report.csv","2018_02_report.csv","2018_04_report.csv","2018_12_report.csv"};
 
         for(String file : fileNames) {
             try (BufferedReader br = new BufferedReader(
                     new InputStreamReader(new ClassPathResource(file).getInputStream()));) {
                 int count = 0;
+                int month = Integer.valueOf(file.substring(MONTH_BEGIN_INDEX,MONTH_END_INDEX));
                 while ((line = br.readLine()) != null) {
                     // ignore headers
                     if (count == 0) {
@@ -39,7 +40,7 @@ public final class ParseExcelUtils {
 
                     // use comma as separator
                     String[] data = line.split(cvsSplitBy);
-                    list.add(new ReportData(data[0], data[1], data[2], data[3], data[4], data[5], file.substring(MONTH_BEGIN_INDEX,MONTH_END_INDEX)));
+                    list.add(new ReportData(data[0], data[1], data[2], data[3], data[4], data[5], String.valueOf(month)));
                 }
 
             } catch (IOException e) {
