@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AdvertiseReportServiceImpl  implements AdvertiseReportService {
+public class AdvertiseReportServiceImpl implements AdvertiseReportService {
 
     private static final Logger log = LoggerFactory.getLogger(AdvertiseReportServiceImpl.class);
 
@@ -45,12 +45,12 @@ public class AdvertiseReportServiceImpl  implements AdvertiseReportService {
      */
     private void mapAdvertiseReportResponse(List<ReportData> reports) {
         reports.forEach(reportData -> {
-            reportData.setReportMonth(ReportDataConst.MONTH_TO_ALFA_MAPPER.get(reportData.getReportMonth()));
-            reportData.setClickThroughRate(twoDigitPrecisionConversion(reportData.getClickThroughRate()));
-            reportData.setConversionRate(twoDigitPrecisionConversion(reportData.getConversionRate()));
-            reportData.setFillRate(twoDigitPrecisionConversion(reportData.getFillRate()));
-            reportData.seteCPM(twoDigitPrecisionConversion(reportData.geteCPM()));
-        }
+                    reportData.setReportMonth(ReportDataConst.MONTH_TO_ALFA_MAPPER.get(reportData.getReportMonth()));
+                    reportData.setClickThroughRate(twoDigitPrecisionConversion(reportData.getClickThroughRate()));
+                    reportData.setConversionRate(twoDigitPrecisionConversion(reportData.getConversionRate()));
+                    reportData.setFillRate(twoDigitPrecisionConversion(reportData.getFillRate()));
+                    reportData.seteCPM(twoDigitPrecisionConversion(reportData.geteCPM()));
+                }
         );
     }
 
@@ -60,7 +60,7 @@ public class AdvertiseReportServiceImpl  implements AdvertiseReportService {
          * first 3 letters of the month (`Jan` for `January`, `Feb` for `February` etc)
          * full name of the month (case insensitive)
     */
-    private String validateAndFilterMonth(String month) throws NumberFormatException{
+    private String validateAndFilterMonth(String month) throws NumberFormatException {
         if (StringUtils.isNotBlank(month)) {
             if (month.length() <= 2) {
                 if (!month.matches("-?(0|[1-9]\\d*)") || Integer.valueOf(month) > 12) {
@@ -81,9 +81,9 @@ public class AdvertiseReportServiceImpl  implements AdvertiseReportService {
     Site - can be in the following form - desktop_web, desktop web, mobile_web, mobile web, android
     */
     private String validateAndFilterSite(String site) {
-        if(StringUtils.isNotBlank(site)) {
+        if (StringUtils.isNotBlank(site)) {
             site = site.toLowerCase();
-            if(StringUtils.equals(site,"desktop_web") || StringUtils.equals(site,"mobile_web") || StringUtils.equals(site,"ios")) {
+            if (StringUtils.equals(site, "desktop_web") || StringUtils.equals(site, "mobile_web") || StringUtils.equals(site, "ios")) {
                 site = ReportDataConst.SITE_MAPPER.get(site);
             }
         }

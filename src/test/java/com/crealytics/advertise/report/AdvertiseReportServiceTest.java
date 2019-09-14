@@ -1,7 +1,6 @@
 package com.crealytics.advertise.report;
 
 import com.crealytics.advertise.report.domain.ReportData;
-import com.crealytics.advertise.report.repository.ReportDataRepository;
 import com.crealytics.advertise.report.service.AdvertiseReportService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AdvertiseReportServiceTest.class, webEnvironment = WebEnvironment.NONE)
@@ -27,19 +25,19 @@ public class AdvertiseReportServiceTest {
 
     @Test
     public void findBySiteAndReportMonthValidDataTest() {
-        List<ReportData> result = advertiseService.findBySiteAndReportMonth("ios","2");
+        List<ReportData> result = advertiseService.findBySiteAndReportMonth("ios", "2");
         assertNotNull(result);
     }
 
     @Test
     public void findBySiteAndReportMonthInValidDataTest() {
-        List<ReportData> result = advertiseService.findBySiteAndReportMonth("iii","2");
+        List<ReportData> result = advertiseService.findBySiteAndReportMonth("iii", "2");
         assertEquals(result.size(), 0);
     }
 
     @Test
     public void findBySiteOnlyValidDataTest() {
-        List<ReportData> result = advertiseService.findBySiteAndReportMonth("iOs","");
+        List<ReportData> result = advertiseService.findBySiteAndReportMonth("iOs", "");
         assertEquals(result.size(), 4);
         assertEquals(String.valueOf(result.get(0).getReportMonth()), "January");
         assertEquals(String.valueOf(result.get(0).getClickThroughRate()), "0.26");
@@ -50,7 +48,7 @@ public class AdvertiseReportServiceTest {
 
     @Test
     public void findBySiteAndReportMonthInValidData1Test() {
-        List<ReportData> result = advertiseService.findBySiteAndReportMonth("","");
+        List<ReportData> result = advertiseService.findBySiteAndReportMonth("", "");
         assertEquals(result.size(), 0);
     }
 
